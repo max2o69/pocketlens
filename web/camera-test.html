@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PocketLens · Browser check</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/camera-test.js" defer></script>
+  </head>
+  <body>
+    <main class="setup">
+      <header>
+        <div class="brand">POCKETLENS</div>
+        <a href="/">Back to dashboard</a>
+      </header>
+      <h1>Check your browser's webcam access.</h1>
+      <p>
+        This page opens <strong>PocketLens</strong> through the same
+        browser camera API used by web meeting apps. Pair your phone first to
+        check its live image.
+      </p>
+      <video
+        id="test-video"
+        class="preview"
+        autoplay
+        playsinline
+        muted
+        aria-label="Webcam output received by this browser"
+      ></video>
+      <div class="actions">
+        <button id="test-start">Test webcam</button
+        ><button id="test-stop" class="secondary" disabled>Stop test</button>
+      </div>
+      <p id="test-message" class="message" role="status" aria-live="polite">
+        Ready to test. No camera is open.
+      </p>
+      <p id="test-metrics" class="small"></p>
+      <p class="small">
+        If you have not granted camera permission, the browser may briefly open
+        its default camera to list device names. This test then selects
+        PocketLens automatically. No microphone access is requested.
+      </p>
+      <section class="panel">
+        <h2>Using Chrome for a web meeting</h2>
+        <ol>
+          <li>Keep the receiver and your phone camera running.</li>
+          <li>Allow camera access on your meeting website.</li>
+          <li>
+            Choose <strong>PocketLens</strong> in that website's camera
+            selector. Your laptop or headset supplies audio.
+          </li>
+          <li>Hold up text to check orientation, then make a practice call.</li>
+        </ol>
+        <p class="small">
+          If the device is missing, run
+          <strong>Install PocketLens System Camera.cmd</strong> and restart Chrome. A
+          successful test here confirms browser capture; the meeting website has
+          its own permissions and camera settings.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PocketLens</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/dashboard.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="brand">POCKETLENS</div>
+        <span class="badge"
+          >Local connection · <span id="version">preview</span></span
+        >
+      </header>
+      <h1>Your iPhone. Your webcam.</h1>
+      <p>
+        Pair your phone, check your framing, and choose
+        <strong>PocketLens</strong> in your meeting.
+      </p>
+      <div class="grid">
+        <section>
+          <img
+            id="preview"
+            class="preview"
+            src="/preview-stream"
+            alt="Live camera preview"
+          />
+          <div class="statusrow">
+            <span id="live"><i class="dot"></i>Waiting for iPhone</span
+            ><span id="consumer">No meeting app connected</span>
+          </div>
+          <p>
+            <a class="button secondary" href="/camera-test"
+              >Check browser webcam access</a
+            >
+          </p>
+          <div class="panel">
+            <span id="transport" class="badge">Waiting</span
+            ><label
+              ><input type="checkbox" id="flip" /> Flip outgoing video
+              horizontally</label
+            >
+            <p class="small">
+              This shares the phone's Mirror video setting and changes the
+              actual webcam output. Turn it off for readable text. Some meeting
+              apps also mirror their self-preview.
+            </p>
+          </div>
+          <div class="panel">
+            <h2>Before your interview</h2>
+            <ol>
+              <li>
+                Keep Safari open on your iPhone, place it sideways, and connect
+                it to power.
+              </li>
+              <li>
+                Choose <strong>PocketLens</strong> in Zoom, Teams, or
+                Meet’s camera settings.
+              </li>
+              <li>Choose your headset or laptop microphone separately.</li>
+              <li>
+                Run a practice call in the app you’ll use. Keep the laptop
+                camera available as a backup.
+              </li>
+            </ol>
+            <p class="small">
+              This is a prototype. A successful preview here does not yet
+              confirm compatibility with your meeting app.
+            </p>
+          </div>
+          <button class="secondary" id="shutdown" style="margin-top: 24px">
+            Stop receiver
+          </button>
+        </section>
+        <aside class="panel">
+          <h2>Connect your iPhone</h2>
+          <p>
+            Connect both devices to the same home Wi-Fi, then scan this code
+            using the iPhone Camera app.
+          </p>
+          <img class="qr" src="/qr" alt="QR code to pair your iPhone" />
+          <p class="small" id="ip"></p>
+          <p id="serverMessage" role="status"></p>
+          <details open>
+            <summary>First time? Set up Safari access</summary>
+            <p class="small">
+              Safari requires a trusted HTTPS connection before it can use your
+              camera. Complete these steps once, then scan the pairing code
+              above.
+            </p>
+            <img
+              class="qr"
+              src="/qr?type=setup"
+              alt="QR code for one-time iPhone setup"
+            />
+            <ol>
+              <li>
+                Scan this setup code and download the local certificate profile.
+              </li>
+              <li>
+                In Settings → General → VPN &amp; Device Management, install
+                <strong>PocketLens — local HTTPS</strong>.
+              </li>
+              <li>
+                In Settings → General → About → Certificate Trust Settings,
+                enable <strong>PocketLens Local CA</strong>.
+              </li>
+              <li>
+                Scan the first QR code and tap <strong>Start camera</strong>.
+              </li>
+            </ol>
+            <p class="small">
+              Only install the profile served by your own laptop. The profile
+              adds a certificate authority, not device management. Remove it
+              when you stop using this app.
+            </p>
+          </details>
+          <details>
+            <summary>Local certificate fingerprint</summary>
+            <p class="small">SHA-256 of this laptop’s certificate authority.</p>
+            <code id="fingerprint"></code>
+          </details>
+          <details>
+            <summary>Connection help</summary>
+            <p class="small">
+              If the iPhone cannot open the setup page, allow the receiver
+              through Windows Firewall using
+              <strong>Allow PocketLens Network.ps1</strong> in the app folder. It allows
+              the setup and video ports, plus WebRTC UDP, from your local
+              subnet. Guest Wi-Fi may prevent devices from reaching each other.
+            </p>
+            <p class="small">
+              Restart the meeting app if the camera is missing. Start this
+              receiver before selecting the camera. On a managed work account,
+              your organization may restrict virtual cameras.
+            </p>
+          </details>
+        </aside>
+      </div>
+      <p class="footer">
+        720p camera output · Video stays on your network · No recording or cloud
+        upload
+      </p>
+    </main>
+  </body>
+</html>

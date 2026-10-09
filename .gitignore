@@ -1,0 +1,28 @@
+# Private runtime, certificates, downloaded toolchains, and local captures.
+/work/
+/dist/
+/.venv/
+/output/
+/.playwright-cli/
+/venv/
+__pycache__/
+*.py[cod]
+*.log
+*.pem
+*.key
+*.pfx
+*.p12
+*.mobileconfig
+.env
+.env.*
+!.env.example
+
+# Native binaries are built from source or shipped in release archives.
+/native/bin/
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+.vs/
+.ruff_cache/

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>PocketLens · iPhone</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/phone-mirror.js" defer></script>
+    <script src="/phone.js" defer></script>
+  </head>
+  <body>
+    <main class="phone">
+      <header>
+        <div class="brand">POCKETLENS</div>
+        <span class="badge">iPhone</span>
+      </header>
+      <h1>Ready when you are.</h1>
+      <p>Keep this page open while you’re on your call.</p>
+      <video class="preview" id="video" autoplay playsinline muted></video>
+      <div class="row">
+        <div>
+          <label for="lens">Camera</label
+          ><select id="lens">
+            <option value="environment">Rear camera</option>
+            <option value="user">Front camera</option>
+          </select>
+        </div>
+        <div>
+          <label for="quality">Connection</label
+          ><select id="quality">
+            <option value="24">Balanced · 24 fps</option>
+            <option value="30">Smooth · 30 fps</option>
+            <option value="15">Low bandwidth · 15 fps</option>
+          </select>
+        </div>
+      </div>
+      <label class="mirror-control">
+        <input type="checkbox" id="mirror" aria-describedby="mirror-help" />
+        Mirror video
+      </label>
+      <p class="small" id="mirror-help">
+        Mirrors your phone preview and the video sent to your meeting. You can
+        change this while the camera is running.
+      </p>
+      <div class="actions">
+        <button id="start">Start camera</button
+        ><button id="stop" disabled>Stop camera</button>
+      </div>
+      <p class="message" id="status" role="status" aria-live="polite">
+        Camera is off.
+      </p>
+      <p class="small">
+        Use landscape orientation and keep the phone connected to power. Audio
+        comes from your laptop or headset. Locking the phone or switching apps
+        can interrupt the camera.
+      </p>
+      <p class="small">
+        <a id="legacy" href="/legacy">Use JPEG compatibility mode</a> if
+        video cannot connect.
+      </p>
+    </main>
+  </body>
+</html>

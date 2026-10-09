@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PocketLens · Setup</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="setup">
+      <header>
+        <div class="brand">POCKETLENS</div>
+        <span class="badge">One-time setup</span>
+      </header>
+      <h1>Let Safari use your camera.</h1>
+      <p>
+        Your laptop hosts a private HTTPS page. Safari needs to trust its
+        certificate before it can access the iPhone camera.
+      </p>
+      <a class="button" href="/PocketLens.mobileconfig"
+        >Download local certificate</a
+      >
+      <ol>
+        <li>Tap the download button, then allow the profile download.</li>
+        <li>
+          Open
+          <strong>Settings → General → VPN &amp; Device Management</strong>.
+          Choose <strong>PocketLens — local HTTPS</strong>, tap Install,
+          and enter your iPhone passcode on your phone if prompted.
+        </li>
+        <li>
+          Open
+          <strong
+            >Settings → General → About → Certificate Trust Settings</strong
+          >. Enable full trust for <strong>PocketLens Local CA</strong>.
+        </li>
+        <li>
+          Return to your laptop dashboard and scan the
+          <strong>first pairing QR code</strong>. Tap Start camera and allow
+          camera access.
+        </li>
+      </ol>
+      <div class="hint">
+        This profile installs a certificate authority generated on your laptop.
+        It grants certificate trust; it does not enroll your phone in device
+        management. Only install it from your own laptop on a trusted network.
+      </div>
+      <p class="small">
+        When you stop using PocketLens, remove its profile from Settings →
+        General → VPN &amp; Device Management.
+        <a href="https://support.apple.com/102390" rel="noreferrer"
+          >Apple’s certificate trust guide</a
+        >.
+      </p>
+    </main>
+  </body>
+</html>
