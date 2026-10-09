@@ -1,8 +1,29 @@
 # PocketLens
 
-Use your iPhone as a Windows webcam over local Wi-Fi. PocketLens provides a
-1280 × 720 DirectShow camera, WebRTC video, a JPEG fallback, and mirror controls.
-Use your laptop or headset microphone.
+> **Turn your iPhone into a live Windows webcam.**
+>
+> *The camera in your pocket, live on your desktop.*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Windows 10 / 11](https://img.shields.io/badge/Windows-10%20%2F%2011-blue.svg)](#requirements)
+[![iPhone Safari](https://img.shields.io/badge/iPhone-Safari%20on%20iOS%2016%2B-black.svg)](#requirements)
+[![Local video](https://img.shields.io/badge/Video-Local%20Wi--Fi-brightgreen.svg)](#privacy-and-removal)
+
+Use the camera you already carry. PocketLens connects your iPhone to a Windows
+virtual webcam over trusted local Wi-Fi, with no phone app to install.
+
+**[Download for Windows](https://github.com/max2o69/pocketlens/releases/latest)**
+· [Report a problem](https://github.com/max2o69/pocketlens/issues/new)
+
+## Highlights
+
+- **Safari on your iPhone:** open the local camera page without an App Store install.
+- **Local video:** WebRTC streams to your laptop without a cloud relay or video recording.
+- **720p Windows webcam:** 1280 × 720 DirectShow output with a JPEG compatibility fallback.
+- **Mirror controls:** change the phone preview and outgoing video from your phone or dashboard.
+
+Use your laptop or headset microphone. Meeting-app support depends on its
+camera interface; see the compatibility notes below.
 
 ## Requirements
 
@@ -13,7 +34,9 @@ Use your laptop or headset microphone.
 
 ## Start
 
-1. Extract the Windows release ZIP and double-click **Start PocketLens.cmd**.
+1. Download `pocketlens-<version>-windows.zip` from
+   [Releases](https://github.com/max2o69/pocketlens/releases/latest), extract it,
+   and double-click **Start PocketLens.cmd**.
 2. On the dashboard, scan **Set up Safari access** and download the certificate
    profile from your laptop. Install it in **Settings → General → VPN & Device
    Management**, then enable trust in **General → About → Certificate Trust
@@ -85,7 +108,9 @@ node --test tests/phone-retry.test.js
 
 Unit tests use temporary state and synthetic video. Browser integration opens
 the real virtual webcam with a synthetic sender; stop phone capture and close
-camera clients first. CI runs these checks and builds a Windows ZIP.
+camera clients first. CI runs these checks and builds release ZIPs. A `v<version>`
+tag matching `VERSION` publishes the tested ZIPs and SHA-256 checksums to GitHub
+Releases; normal pushes produce downloadable workflow artifacts.
 
 ```powershell
 & .\work\venv\Scripts\python.exe scripts/package_release.py --kind windows
@@ -106,6 +131,6 @@ Python dependencies are installed separately and retain their own licenses.
 
 ## Author
 
-Built by **Kyaw Myo Htet**.
+Built by **[Kyaw Myo Htet](https://github.com/max2o69)**.
 
 LinkedIn: [Kyaw Myo Htet](https://www.linkedin.com/in/kyaw-myo-htet-a8840b377/)
