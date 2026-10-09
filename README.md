@@ -103,3 +103,9 @@ toolchains, logs, and captures are excluded from Git and archives.
 [DirectShow Base Classes](https://github.com/microsoft/Windows-classic-samples/tree/main/Samples/Win7Samples/multimedia/directshow/baseclasses)
 ([license](native/MICROSOFT-LICENSE.txt)). Upstream copyright notices are retained.
 Python dependencies are installed separately and retain their own licenses.
+
+## Author
+
+Built by **Kyaw Myo Htet**.
+
+LinkedIn: [Kyaw Myo Htet](https://www.linkedin.com/in/kyaw-myo-htet-a8840b377/)
